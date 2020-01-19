@@ -10,8 +10,9 @@ class Image extends Model
 {
     protected $fillable = ['file_name', 'imageable_type', 'imageable_id'];
 
-    public function category()
+
+    public function imageable()
     {
-        return $this->belongsTo('App\Category');
+        return $this->morphTo();
     }
 }
