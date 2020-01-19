@@ -14,7 +14,11 @@ class Course extends Model
     }
     public function image()
     {
+        return $this->hasOne('App\Image');
+    }
+    public function imageMorph()
+    {
         return $this->morphOne('App\Image', 'imageable');
     }
-    
+
 }
