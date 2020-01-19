@@ -12,11 +12,11 @@ class Course extends Model
     {
         return $this->hasOne('App\Category');
     }
-    public function image()
+    public function get_image()
     {
         return $this->hasOne('App\Image');
     }
-    public function imageMorph()
+    public function image()
     {
         return $this->morphOne('App\Image', 'imageable');
     }
