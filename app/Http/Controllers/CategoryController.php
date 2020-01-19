@@ -36,7 +36,6 @@ class CategoryController extends Controller
             return response()->json(['message' => "this ID : " . $id . " is Wrong ! try another one"]);
         }
 
-        $categorie = Category::findOrFail($id);
         $attributes = [];
         if (isset($request->category_id)) {
             $attributes['category_id'] = $request->category_id;
