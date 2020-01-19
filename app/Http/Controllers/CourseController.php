@@ -8,7 +8,14 @@ use Illuminate\Support\Facades\Hash;
 
 class CourseController extends Controller
 {
-    public function index()
+
+    public function getCourse(Request $request, $id)
+    {
+        $course = Course::findOrFail($id);
+        return response()->json(['course : '.$id => $course]);
+    }
+
+    public function indexCourses()
     {
         $courses = Course::all();
         return response()->json(['results' => $courses, 'total' => count($courses)]);

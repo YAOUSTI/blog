@@ -15,7 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::prefix('courses')->group(function () {
-    Route::get('index', 'CourseController@index');
+    Route::get('{id}', 'CourseController@getCourse');
+    Route::get('indexCourses', 'CourseController@indexCourses');
     Route::post('store', 'CourseController@store');
     Route::put('update/{id}', 'CourseController@update');
     Route::delete('delete/{id}', 'CourseController@delete');
