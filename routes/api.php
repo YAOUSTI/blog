@@ -29,6 +29,7 @@ Route::prefix('categories')->group(function () {
 });
 
 Route::prefix('images')->group(function () {
-    Route::post('upload', 'ImageController@UploadImage');
+    Route::post('uploadCourse', 'ImageController@UploadImageCourse');
+    Route::post('uploadCategory', 'ImageController@UploadImageCategory');
 });
 
