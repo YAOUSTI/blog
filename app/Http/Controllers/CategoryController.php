@@ -35,24 +35,13 @@ class CategoryController extends Controller
         } catch (ModelNotFoundException $e) {
             return response()->json(['message' => "this ID : " . $id . " is Wrong ! try another one"]);
         }
-
-        $attributes = [];
-        if (isset($request->category_id)) {
-            $attributes['category_id'] = $request->category_id;
-        }
-
-        if (isset($request->name)) {
-            $attributes['name'] = $request->name;
-        }
-
-        if (isset($request->description)) {
-            $attributes['description'] = $request->description;
-        }
-
-        if (isset($request->slug)) {
-            $attributes['slug'] = $request->slug;
-        }
-
+        
+        $attributes = $request->validate([
+            'category_id' => 'required|max:5',
+            'name' => 'required|max:20',
+            'description' => 'required|max:20',
+            'slug' => 'required|max:20',
+        ]);
 
         $categorie->update($attributes);
         return response()->json(['course updated successfully' => $categorie]);
